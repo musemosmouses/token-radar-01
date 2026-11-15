@@ -1,0 +1,124 @@
+/* Token Launch Radar — editorial paper. One palette, generous spacing, tabular numerals. */
+:root {
+  --paper: #faf6ef;
+  --card: #fffdf8;
+  --ink: #1b1712;
+  --muted: #6f6455;
+  --line: #e3dacb;
+  --brick: #9a3b26;
+  --green: #1f6b4a;
+  --amber: #8a6d00;
+  --grey: #7a7268;
+  --soft: #f1e9db;
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+h1, h2, h3, .serif { font-family: Georgia, "Times New Roman", serif; }
+a { color: var(--brick); }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 8px; top: 8px; background: var(--card); padding: 6px 10px; }
+.masthead { max-width: 1160px; margin: 0 auto; padding: 28px 20px 8px; }
+.eyebrow { margin: 0 0 6px; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; color: var(--brick); font-weight: 700; }
+h1 { margin: 0 0 8px; font-size: 44px; line-height: 1.05; font-weight: 700; }
+.lede { margin: 0 0 14px; font-size: 17px; max-width: 860px; }
+.formula {
+  margin: 0 0 12px; padding: 10px 14px; background: var(--card); border: 1px solid var(--line);
+  border-left: 4px solid var(--brick); font-family: Georgia, serif; font-size: 17px;
+}
+.how, .disclaimer { max-width: 860px; font-size: 13.5px; color: #3d362c; margin: 0 0 10px; }
+.disclaimer { color: var(--muted); }
+.muted { color: var(--muted); }
+main { max-width: 1160px; margin: 0 auto; padding: 10px 20px 30px; }
+.foot { max-width: 1160px; margin: 0 auto; padding: 0 20px 28px; color: var(--muted); font-size: 12.5px; }
+
+/* Stat strip */
+.stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 14px 0 16px; }
+.stat { background: var(--card); border: 1px solid var(--line); padding: 10px 12px; }
+.stat b { display: block; font-family: Georgia, serif; font-size: 24px; line-height: 1.1; }
+.stat span { font-size: 12px; color: var(--muted); }
+.stat .ok { color: var(--green); }
+
+/* Farm next */
+.farmnext { background: var(--card); border: 1px solid var(--line); padding: 12px 14px; margin-bottom: 16px; }
+.farmnext h2 { margin: 0 0 4px; font-size: 19px; }
+.farmnext p { margin: 0 0 8px; font-size: 13px; color: var(--muted); }
+.farmnext ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 28px; }
+.farmnext li { font-size: 13.5px; padding: 2px 0; break-inside: avoid; }
+.farmnext li b { color: var(--green); }
+
+/* Tabs */
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 12px; }
+.tabs button {
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  font: inherit; font-size: 13.5px; padding: 7px 12px; cursor: pointer; border-radius: 2px;
+}
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.tabs button .n { color: var(--muted); font-size: 12px; }
+.tabs button[aria-selected="true"] .n { color: #d8cfc0; }
+
+/* Filters */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: end; margin-bottom: 10px; }
+.filters label { font-size: 12px; color: var(--muted); display: grid; gap: 2px; }
+.filters input, .filters select {
+  font: inherit; font-size: 13.5px; padding: 6px 8px; border: 1px solid var(--line);
+  background: var(--card); color: var(--ink); border-radius: 2px; max-width: 220px;
+}
+.count { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; background: var(--card); font-size: 13.5px; }
+th, td { padding: 7px 9px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align: left; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); cursor: pointer; user-select: none; }
+th:hover { color: var(--ink); }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: var(--soft); }
+tbody tr.sel { background: #f6e8dd; }
+.name { font-weight: 600; }
+.cat { display: block; font-size: 11.5px; color: var(--muted); font-weight: 400; }
+.pill { display: inline-block; padding: 1px 8px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+.pill.farm { background: #dcefe4; color: var(--green); }
+.pill.thin { background: #f3e9c8; color: var(--amber); }
+.pill.skip { background: #e9e2d8; color: var(--grey); }
+.wl { color: var(--brick); font-weight: 700; font-size: 11px; }
+
+/* Detail */
+.detail { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--brick); padding: 16px 18px; margin-top: 14px; }
+.detail h2 { margin: 0 0 2px; font-size: 24px; }
+.detail .sub { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+.detail h3 { margin: 16px 0 6px; font-size: 16px; }
+.kv { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px 16px; font-size: 13.5px; }
+.kv div b { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; }
+.model-line { font-family: Georgia, serif; font-size: 15px; background: var(--soft); padding: 8px 10px; margin: 0 0 6px; }
+.band { font-size: 13px; color: var(--muted); margin: 0 0 4px; }
+.steps { margin: 0; padding-left: 20px; }
+.steps li { margin-bottom: 8px; font-size: 13.5px; }
+.steps li b { color: var(--brick); }
+.badge { display: inline-block; font-size: 12px; border: 1px solid var(--line); padding: 3px 8px; background: var(--soft); margin-top: 10px; }
+.badge .ok { color: var(--green); font-weight: 700; }
+
+/* Calibration */
+.calib { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.calib .card { background: var(--card); border: 1px solid var(--line); padding: 12px 14px; }
+.calib h3 { margin: 0 0 6px; font-size: 16px; }
+.calib p, .calib li { font-size: 13.5px; }
+.calib ul { margin: 0; padding-left: 18px; }
+.calib table th, .calib table td { cursor: default; }
+.scatter { width: 100%; height: auto; display: block; }
+.legend { font-size: 12px; color: var(--muted); }
+.sandbox label { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; font-size: 13.5px; margin-bottom: 8px; }
+.sandbox input[type="range"] { width: 100%; }
+@media (max-width: 760px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .calib { grid-template-columns: 1fr; }
+  .kv { grid-template-columns: repeat(2, 1fr); }
+  .farmnext ol { columns: 1; }
+  h1 { font-size: 32px; }
+}
