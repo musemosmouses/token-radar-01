@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="masthead">
+  <p class="eyebrow">make.fun &middot; token-radar-01 &middot; model comps-5</p>
+  <h1>Token Launch Radar</h1>
+  <p class="lede">Pre-token protocols ranked by an implied value fitted from the snapshot&rsquo;s own traded tokens. The watchlist is the floor, never the ceiling: the board carries the 40 watchlist protocols and the 158 early finds below it.</p>
+  <p class="formula">implied = 10<sup>2.71</sup> &times; TVL<sup>0.56</sup> &times; momentum &times; seasoning <span class="muted">(&times;0.5 when a related token already trades)</span></p>
+  <p class="how"><strong>How a row is valued.</strong> The size curve is an OLS fit of log market cap on log TVL over 84 comparable traded protocols (R&sup2; 0.22). Momentum scales the curve by the protocol&rsquo;s 7-day TVL change; seasoning scales it by how long the protocol has run with no token recorded. No protocol name is ever special-cased: the same function scores every row, and the sandbox on the calibration tab runs that same function. Leave-one-out backtest on the comparables: typical miss &times;2.61, against &times;4.17 for a flat multiple. The middle half of backtest errors is &times;0.43&ndash;&times;3.84 and is shown per row as its range.</p>
+  <p class="disclaimer">An implied value is this radar&rsquo;s own claim, never make.fun&rsquo;s. &ldquo;Records no token&rdquo; is DefiLlama&rsquo;s record, not proof a token does not exist. The farm slice assumes 10% of the implied value reaches depositors, shared pro-rata over TVL; gas is six transactions priced by the protocol&rsquo;s first chain. Nothing here predicts whether or when a token is issued.</p>
+</header>
+<main id="board" tabindex="-1" aria-busy="true"></main>
+<footer class="foot">
+  <p>Snapshot: DefiLlama protocols, fetched 14 Nov 2026 01:18 UTC &middot; 758 protocols at or above $5M TVL &middot; watchlist floor $50M. Board and page agree by construction: the page renders the same board.json the gate reads.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
